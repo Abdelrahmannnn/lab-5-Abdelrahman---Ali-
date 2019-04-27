@@ -248,11 +248,11 @@ public class application implements IExpressionEvaluator {
 	*/
 	
 	public int evaluate(String expression) {
-		int total;		
-		int no1,no2;
+		float total;		
+		float no1,no2;
 		int len = expression.length();
-		int d=0;
-		int q=0;
+		float d=0;
+		float q=0;
 		int j=1;
 		int t=0;
 		int k=1;
@@ -292,9 +292,9 @@ public class application implements IExpressionEvaluator {
 						j++;
 						i++;
 					}
-					int[] arr=new int  [j];
+					float[] arr=new float  [j];
 					for( p=0;p<j;p++) {
-						arr[p]=expression.charAt(t)-'0';
+						arr[p]= (float) (expression.charAt(t)-'0');
 						t++;
 					}
 					for( p=j-1;p>=0;p--) {
@@ -310,9 +310,9 @@ public class application implements IExpressionEvaluator {
 						j++;
 						i++;
 					}
-					int [] arr=new int  [j];
+					float [] arr=new float  [j];
 					for( p=0;p<j;p++) {
-						arr[p]= expression.charAt(t)-'0';
+						arr[p]= (float)(expression.charAt(t)-'0');
 						t++;
 					}
 					for( p=j-1;p>=0;p--) {
@@ -324,9 +324,9 @@ public class application implements IExpressionEvaluator {
 					  }else {
 						 v=a.isEmpty();
 						 if(v==false) {
-							 no2= (int)a.pop();
-						     no1=(int) a.pop();
-						     total= (int)no1 - no2 ;
+							 no2= (float)a.pop();
+						     no1=(float) a.pop();
+						     total= no1 - no2 ;
 							    a.push(total);
 							    i++;
 						     
@@ -336,8 +336,8 @@ public class application implements IExpressionEvaluator {
 					  else if (expression.charAt(i)=='+'||expression.charAt(i)=='*'||expression.charAt(i)=='/'||(expression.charAt(i)=='-'&&i+1==expression.length())) {
 					v=a.isEmpty();
 					if(v==false) {
-						no2= (int)a.pop();
-						no1=(int) a.pop();
+						no2= (float)a.pop();
+						no1=(float) a.pop();
 						switch (expression.charAt(i)) {
 						   case '+' :
 						    total=no1 + no2 ;
@@ -373,10 +373,10 @@ public class application implements IExpressionEvaluator {
 	
 				
 		/**
-		 * int n is the final value that would be returned
+		 * float n is the final value then it would be casted to int then it would be returned
 		 */
-	   int n= (int) a.pop();
-	   return   n;
+	   float n= (float) a.pop();
+	   return   (int) n;
 		
 	}
 	
